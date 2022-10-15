@@ -1,2 +1,8 @@
 # build artifacts
 build/
+
+# temp config
+.vscode
+
+# CMake install output
+output/
