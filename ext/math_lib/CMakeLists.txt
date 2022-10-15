@@ -7,19 +7,19 @@ add_library(${PROJECT_NAME} STATIC
     math_lib.c
 )
 
-target_include_directories(${PROJECT_NAME}
-    PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-    $<INSTALL_INTERFACE:.>
-)
-
 set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_SOURCE_DIR}/../output")
 
 # install the .lib
 install(TARGETS ${PROJECT_NAME}
     EXPORT "${PROJECT_NAME}Target"
-    ARCHIVE DESTINATION lib
+    ARCHIVE DESTINATION lib/$<CONFIG>
     INCLUDES DESTINATION include
+)
+
+# install the .pdb
+install(FILES ${CMAKE_BINARY_DIR}/Debug/${PROJECT_NAME}.pdb
+    DESTINATION lib/Debug
+    CONFIGURATIONS Debug
 )
 
 # install the headers
@@ -32,12 +32,13 @@ include(CMakePackageConfigHelpers)
 # create the version file
 write_basic_package_version_file(
     "${CMAKE_INSTALL_PREFIX}/cmake/${PROJECT_NAME}-config-version.cmake"
-    VERSION "1.0.0"
+    VERSION "1.1.0"
     COMPATIBILITY AnyNewerVersion
 )
 
 # create the package config file
-export(EXPORT "${PROJECT_NAME}Target"
-    FILE "${CMAKE_INSTALL_PREFIX}/cmake/${PROJECT_NAME}-config.cmake"
+install(EXPORT "${PROJECT_NAME}Target"
+    FILE "${PROJECT_NAME}-config.cmake"
+    DESTINATION "cmake"
     NAMESPACE ${PROJECT_NAME}::
 )
