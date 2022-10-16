@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 project(main)
 
 # set the package config path
-set(math_lib_DIR "ext/output/cmake")
+set(math_lib_DIR "ext/output/cmake/math_lib")
 find_package(math_lib)
 
 message("package version = ${math_lib_VERSION}")

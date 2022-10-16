@@ -31,7 +31,7 @@ include(CMakePackageConfigHelpers)
 
 # create the version file
 write_basic_package_version_file(
-    "${CMAKE_INSTALL_PREFIX}/cmake/${PROJECT_NAME}-config-version.cmake"
+    "${CMAKE_INSTALL_PREFIX}/cmake/${PROJECT_NAME}/${PROJECT_NAME}-config-version.cmake"
     VERSION "1.1.0"
     COMPATIBILITY AnyNewerVersion
 )
@@ -39,6 +39,6 @@ write_basic_package_version_file(
 # create the package config file
 install(EXPORT "${PROJECT_NAME}Target"
     FILE "${PROJECT_NAME}-config.cmake"
-    DESTINATION "cmake"
+    DESTINATION "cmake/${PROJECT_NAME}"
     NAMESPACE ${PROJECT_NAME}::
 )
