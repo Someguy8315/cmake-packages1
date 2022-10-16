@@ -16,11 +16,13 @@ install(TARGETS ${PROJECT_NAME}
     INCLUDES DESTINATION include
 )
 
-# install the .pdb
-install(FILES ${CMAKE_BINARY_DIR}/Debug/${PROJECT_NAME}.pdb
-    DESTINATION lib/Debug
-    CONFIGURATIONS Debug
-)
+if (WIN32)
+    # install the .pdb
+    install(FILES ${CMAKE_BINARY_DIR}/Debug/${PROJECT_NAME}.pdb
+        DESTINATION lib/Debug
+        CONFIGURATIONS Debug
+    )
+endif()
 
 # install the headers
 install(FILES math_lib.h
