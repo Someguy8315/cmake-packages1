@@ -3,8 +3,10 @@
 
 int main()
 {
-    double value = add(3.1, 2.5);
+    double value1 = add(3.1, 2.5);
+    double value2 = sub(10.2, 5.3);
 
-    printf("value = %lf\n", value);
+    printf("value1 = %lf\n", value1);
+    printf("value2 = %lf\n", value2);
     return 0;
 }

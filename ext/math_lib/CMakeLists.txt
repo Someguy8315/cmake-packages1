@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(math_lib)
+project(math_lib VERSION 1.2.0)
 
 add_library(${PROJECT_NAME} STATIC
     math_lib.h
@@ -34,7 +34,7 @@ include(CMakePackageConfigHelpers)
 # create the version file
 write_basic_package_version_file(
     "${CMAKE_INSTALL_PREFIX}/cmake/${PROJECT_NAME}/${PROJECT_NAME}-config-version.cmake"
-    VERSION "1.1.0"
+    VERSION ${PROJECT_VERSION}
     COMPATIBILITY AnyNewerVersion
 )
 
