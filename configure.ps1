@@ -8,4 +8,6 @@ $build_path = "build"
 
 if (!(Test-Path -Path $build_path)) {
     cmake -G $generator -B $build_path
+} else {
+    cmake -B $build_path
 }

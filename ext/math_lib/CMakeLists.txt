@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(math_lib VERSION 1.2.0)
+project(math_lib VERSION 1.3.0)
 
 set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_SOURCE_DIR}/../output")
 
@@ -18,11 +18,13 @@ include(CMakePackageConfigHelpers)
 
 # add the library modules
 add_subdirectory(modules/division)
+add_subdirectory(modules/multiplication)
 
 # install the .lib
-install(TARGETS ${PROJECT_NAME} math_division
+install(TARGETS ${PROJECT_NAME} math_division math_multiplication
     EXPORT "${PROJECT_NAME}Target"
     ARCHIVE DESTINATION lib/$<CONFIG>
+    RUNTIME DESTINATION lib/$<CONFIG>
 )
 
 if(WIN32)
