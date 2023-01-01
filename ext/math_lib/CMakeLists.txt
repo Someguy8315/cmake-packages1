@@ -24,6 +24,7 @@ add_subdirectory(modules/multiplication)
 install(TARGETS ${PROJECT_NAME} math_division math_multiplication
     EXPORT "${PROJECT_NAME}Target"
     ARCHIVE DESTINATION lib/$<CONFIG>
+    LIBRARY DESTINATION lib/$<CONFIG>
     RUNTIME DESTINATION lib/$<CONFIG>
 )
 
