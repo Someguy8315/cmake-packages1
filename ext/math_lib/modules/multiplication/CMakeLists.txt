@@ -22,7 +22,7 @@ target_include_directories(${PROJECT_NAME}
     $<INSTALL_INTERFACE:include/multiplication>
 )
 
-if(WIN32 AND ${CMAKE_GENERATOR} MATCHES "Visual Studio")
+if(WIN32 AND MSVC)
     # install the .pdb
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/Debug/${PROJECT_NAME}.pdb
         DESTINATION lib/Debug
