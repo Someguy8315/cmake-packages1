@@ -7,20 +7,14 @@ list(APPEND CMAKE_PREFIX_PATH
     "${CMAKE_SOURCE_DIR}/ext/output/cmake/math_lib"
 )
 
-find_package(math_lib)
+find_package(math_lib REQUIRED)
 message("package version = ${math_lib_VERSION}")
 
 add_executable(main src/main.c)
 
 target_link_libraries(main PRIVATE
     math_lib::math_lib
-)
-
-target_link_libraries(main PRIVATE
     math_lib::math_division
-)
-
-target_link_libraries(main PRIVATE
     math_lib::math_multiplication
 )
 
