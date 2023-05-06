@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.15)
 
 project(main)
 
@@ -30,7 +30,7 @@ if(WIN32)
     if(MSVC)
         set(copy_command
             ${CMAKE_COMMAND} -E copy
-            ${CMAKE_SOURCE_DIR}/ext/output/lib/Debug/math_multiplication.pdb
+            ${CMAKE_SOURCE_DIR}/ext/output/lib/Debug/math_multiplication/math_multiplication.pdb
             $<TARGET_FILE_DIR:${PROJECT_NAME}>
         )
 
