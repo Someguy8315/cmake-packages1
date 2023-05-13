@@ -17,6 +17,19 @@ include(CMakePackageConfigHelpers)
 add_subdirectory(modules/division)
 add_subdirectory(modules/multiplication)
 
+# add a library that references all the other libraries
+add_library(all_lib INTERFACE)
+
+target_link_libraries(all_lib INTERFACE
+    math_lib
+    math_division
+    math_multiplication
+)
+
+install(TARGETS all_lib
+    EXPORT ${MATH_LIB_EXPORT}
+)
+
 # install the .lib
 install(TARGETS ${PROJECT_NAME}
     EXPORT ${MATH_LIB_EXPORT}

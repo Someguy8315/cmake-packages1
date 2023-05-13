@@ -13,9 +13,7 @@ message("package version = ${math_lib_VERSION}")
 add_executable(main src/main.c)
 
 target_link_libraries(main PRIVATE
-    math_lib::math_lib
-    math_lib::math_division
-    math_lib::math_multiplication
+    math_lib::all_lib
 )
 
 if(WIN32)
