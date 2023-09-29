@@ -34,7 +34,7 @@ install(FILES math_lib.h
 
 if(WIN32 AND MSVC)
     # install the .pdb
-    install(FILES ${CMAKE_BINARY_DIR}/Debug/${PROJECT_NAME}.pdb
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/Debug/${PROJECT_NAME}.pdb
         DESTINATION lib/Debug/${PROJECT_NAME}
         CONFIGURATIONS Debug
     )
